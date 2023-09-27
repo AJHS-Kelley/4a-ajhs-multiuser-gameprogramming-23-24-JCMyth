@@ -1,3 +1,4 @@
+using System.Runtime.Serialization;
 using System.Collections.Concurrent;
 using System.Reflection.Emit;
 using System.Data;
@@ -57,8 +58,28 @@ namespace numberGuess
                 rangeMax = 10;
                 numGuesses = 4;
 
-            } else if (Normal Mode){
-                // Code to tun
+            } else if (difficulty == "Normal") {
+                rangeMin = 0;
+                rangeMax = 25;
+                numGuess = 3;
+
+            } else if (difficulty == "Hard") {
+                rangeMin = 0;
+                rangeMax = 50;
+                numGuess = 2;
+            }
+            Console.Writeline("Minimum: " + rangeMin);
+            Console.Writeline("Maximum: " + rangeMin);
+
+            while (playerScore != 3 && cpuScore != 3) {
+                // Any code you want to run Before each round goes here
+
+
+                // START EACH ROUND
+                for (int i = 0; i < numGuess ; i++) {
+                    numGuess 
+                    break
+                }
             }
 
         }
