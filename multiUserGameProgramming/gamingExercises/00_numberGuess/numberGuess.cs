@@ -1,8 +1,15 @@
+using System.Runtime.Serialization.Json;
+using System.ComponentModel.Design.Serialization;
+using System.Reflection.Metadata;
+using System.Runtime.InteropServices;
+using System.Security.AccessControl;
+using System.Net.Http.Headers;
 using System.Runtime.Serialization;
 using System.Collections.Concurrent;
 using System.Reflection.Emit;
 using System.Data;
 using Internal;
+
 // Julian Cunningham , numberGuess, v0.02
 /*
 Generate secret number from a defined range of numbers (i.e 0-10, 0-50, 0-100)
@@ -29,6 +36,7 @@ Determine if guess is correct or not
     }
 
 */
+
 using System;
 
 namespace numberGuess
@@ -41,17 +49,18 @@ namespace numberGuess
            int numGuesses = 0; // Number of guesses the player is ALLOWED.
            int numAttempts = 0; // Number of guesses TAKEN
            int playerScore = 0;
-           int cpuScore = 0
+           int cpuScore = 0;
+           int playerGuess = 0;
            string difficulty = "";
            int rangeMin = -1;
            int rangeMax = -1;
 
-           Console.WriteLine("Welcome to this game.\nHere is where you will select your difficulty.")
-           Console.WriteLine("Easy: Range 0-10 with 4 guesses\nNormal: Range 0-25 with 3 guesses\n Hard: 0-50 with 2 guesses")
+           Console.WriteLine("Welcome to this game.\nHere is where you will select your difficulty.");
+           Console.WriteLine("Easy: Range 0-10 with 4 guesses\nNormal: Range 0-25 with 3 guesses\n Hard: 0-50 with 2 guesses");
 
             // Difficulty selection
-            Console.WriteLine("Please select Easy, Normal, or Hard and ress ENTER.")
-            difficulty == Console.ReadLine();
+            Console.WriteLine("Please select Easy, Normal, or Hard and ress ENTER.");
+            difficulty = Console.ReadLine();
             // Console.WriteLine() will save to STRING by default
             if (difficulty == "Easy") {
                 rangeMin = 0;
@@ -61,25 +70,54 @@ namespace numberGuess
             } else if (difficulty == "Normal") {
                 rangeMin = 0;
                 rangeMax = 25;
-                numGuess = 3;
+                numGuesses = 3;
 
             } else if (difficulty == "Hard") {
                 rangeMin = 0;
                 rangeMax = 50;
-                numGuess = 2;
+                numGuesses = 2;
             }
-            Console.Writeline("Minimum: " + rangeMin);
-            Console.Writeline("Maximum: " + rangeMin);
+            Console.WriteLine("Minimum: " + rangeMin);
+            Console.WriteLine("Maximum: " + rangeMax);
 
             while (playerScore != 3 && cpuScore != 3) {
                 // Any code you want to run Before each round goes here
-
+                //GENERATE SECRET NUMBER
+                Random rndNum = new Random();
+                secretNumber = rndNum.Next(rangeMin, rangeMax);
+                Console.WriteLine(secretNumber);
+                Console.WriteLine("Player Score: " + playerScore + "\n");
+                Console.WriteLine("CPU Score: " + cpuScore + "\n");
 
                 // START EACH ROUND
-                for (int i = 0; i < numGuess ; i++) {
-                    numGuess 
-                    break
+                for (int i = 0; i < numGuesses ; i++) {
+                    //code to guess Number goes here
+                    Console.WriteLine("You have used " + numAttempts + " this round.\n");
+                    Console.WriteLine("You must guess between " + rangeMin + " and" + rangeMax + "\n");
+                    playerGuess = System.Convert.ToInt32(Console.ReadLine());
+                    if (playerGuess == secretNumber) {
+                        Console.WriteLine("Great job! You got it right and earned a point.\n");
+                        playerScore++;
+                        break;
+                    } else {
+                        if (playerGuess > secretNumber) {
+                            Console.WriteLine("Your guess is too high.\n");
+                        } else {
+                            Console.WriteLine("Your guess is too low.\n");
+                        }
+                    }
+                    numAttempts++;
                 }
+                if (playerGuess != secretNumber) {
+                    cpuScore++;
+                    // Print a round lost message to the console.
+                    Console.WriteLine("You lost and the CPU has gained a point");
+                }
+            }
+            if (playerScore >= 3) {
+                Console.WriteLine("You have won the game!\n");
+            } else {
+                Console.WriteLine("You have lost the game!\n");
             }
 
         }
