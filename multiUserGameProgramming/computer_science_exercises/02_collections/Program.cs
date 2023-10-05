@@ -2,7 +2,7 @@
 using System.Data;
 using System.Text;
 using Internal;
-// 02_Collections, Julian Cunningham, 10/3/23 v0.1a
+// 02_Collections, Julian Cunningham, 10/3/23 v0.1c
 
 using System;
 
@@ -36,6 +36,15 @@ namespace _02_collections
             Console.WriteLine();
             Console.WriteLine("GPA: \n" + string.Join(", ", GPA));
             Console.WriteLine();
+
+            /* // Print Array Contents -- Each element on a seperate line\Console.WriteLine("The elements for each array are:\n");
+            Console.WriteLine("breakfastFoods: \n" + string.Join("\n", breakfastFoods));
+            Console.WriteLine();
+            Console.WriteLine("testScores: \n" + string.Join("\n", testScores));
+            Console.WriteLine();
+            Console.WriteLine("GPA: \n" + string.Join("\n", GPA));
+            Console.WriteLine();
+            */
 
         }
     }
