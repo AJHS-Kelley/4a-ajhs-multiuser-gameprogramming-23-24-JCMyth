@@ -1,4 +1,4 @@
-// Julian Cunningham , Program Template, v0.02
+// Julian Cunningham , Program Template, v0.03
 using System;
 
 namespace MethodsParameters
@@ -15,7 +15,7 @@ namespace MethodsParameters
         // static -- This method belongs to the current class, it is Not an object
         //void -- This method has no return value.
 
-        static int DoubleUp():
+       /* static int DoubleUp():
         {
             int sum = 0;
             Console.WriteLine("This method will double a number and return it.\n");
@@ -25,13 +25,25 @@ namespace MethodsParameters
             Console.WriteLine(sum);
             return sum;
         }
+*/
+        //Methods with Parameters
+        /* static void MakePancakes(int num)
+        {
+            for (int i = 0; i < num; i++)
+            {
+                Console.WriteLine("One pancake coming up!\n");
+            }
+        }
+        */
+        static void MakeEggs(int num, string style)
+        {
+            Console.WriteLine("You have oredered " + num + " eggs cooked in " + style);
+        }
         static void Main(string[] args)
         {
         //   MyMethod();
-           DoubleUp();
+        //   DoubleUp();
+        MakePancakes(3);
         }
     }
-
-
-
 }
