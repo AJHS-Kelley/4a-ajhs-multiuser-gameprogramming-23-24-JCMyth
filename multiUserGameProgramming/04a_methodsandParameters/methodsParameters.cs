@@ -1,4 +1,4 @@
-// Julian Cunningham , Program Template, v0.03
+// Julian Cunningham , Program Template, v0.04
 using System;
 
 namespace MethodsParameters
@@ -35,15 +35,31 @@ namespace MethodsParameters
             }
         }
         */
-        static void MakeEggs(int num, string style)
+       /* static void MakeEggs(int num, string style)
         {
             Console.WriteLine("You have oredered " + num + " eggs cooked in " + style);
         }
+        
+        static void MakeBurger(int num = 1)
+        {
+            Console.WriteLine("I am going to cook " + num + " hamburgers.\n");
+        }
+        */
+        // Named Arguments
+        static void AllMyChildren(string child1, string child2, string child3)
+        {
+            Console.WriteLine("My favorite child is " + child3);
+        }
+        
         static void Main(string[] args)
         {
         //   MyMethod();
         //   DoubleUp();
-        MakePancakes(3);
+        //   MakePancakes(3);
+        //   MakeEggs(10, "sunny side up");
+        //  MakeBurger();
+        //  MakeBurger(10);
+        AllMyChildren(child3: "bob", child2: "trish", child1: "thomas");
         }
     }
 }
