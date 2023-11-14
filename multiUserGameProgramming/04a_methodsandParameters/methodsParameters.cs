@@ -46,11 +46,26 @@ namespace MethodsParameters
         }
         */
         // Named Arguments
-        static void AllMyChildren(string child1, string child2, string child3)
+        /* static void AllMyChildren(string child1, string child2, string child3)
         {
             Console.WriteLine("My favorite child is " + child3);
-        }
+        }*/
         
+        //METHOD OVERLOADING
+        static int FindSum(int x, int y)
+        {
+            int sum = x + y;
+            Console.WriteLine("Sum: " + sum);
+            return sum;
+        }
+
+        static double FindSum(double x, double y)
+        {
+            double sum = x + y;
+            Console.WriteLine("Sum: " + sum);
+            return sum;
+        }
+
         static void Main(string[] args)
         {
         //   MyMethod();
@@ -59,7 +74,10 @@ namespace MethodsParameters
         //   MakeEggs(10, "sunny side up");
         //  MakeBurger();
         //  MakeBurger(10);
-        AllMyChildren(child3: "bob", child2: "trish", child1: "thomas");
+        //  AllMyChildren(child3: "bob", child2: "trish", child1: "thomas");
+        FindSum(8, 3);
+        FindSum(8.7, 2.1);
+        FindSum(4, 2.7);
         }
     }
 }
