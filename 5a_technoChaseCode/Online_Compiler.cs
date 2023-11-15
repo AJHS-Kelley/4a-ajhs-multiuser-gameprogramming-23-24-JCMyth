@@ -30,25 +30,27 @@ namespace ExampleTests
             int CritAttack; Random random = new Random();
             for (int i = 0; i < 2; i++)
             {
-                Console.WriteLine("Press any key to attack./n");
+                Console.WriteLine("Press any key to attack.\n");
                 string Attack;
                 Console.ReadKey();
                 CritAttack = random.Next(1, 6);
                 // IF statement determines if the attack if critical, and assigns it a string name that can be used later.
                 if (CritAttack == 3)
                 {
-                    Console.WriteLine("You've hit a jackpot! Bonus Damage achieved!/n");
-                    string Attack = "Critical";
+                    Console.WriteLine("You've hit a jackpot! Bonus Damage achieved!\n");
+                    Attack = "Critical";
+                    // return 1; 
                     
                 } 
                 else    
                 {
-                    Console.WriteLine("Attack landed/n");
-                    string Attack = "Landed";
-                    
+                    Console.WriteLine("Attack landed\ttest");
+                    Attack = "Landed";
+                    // return 2; 
                 }
             
-            }   
+            }
+            // return 0; 
         }   
 
         
@@ -60,7 +62,7 @@ namespace ExampleTests
            CritAttack();
         }
         
-
+        
 
 
     }
