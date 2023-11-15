@@ -4,12 +4,16 @@ Ideas for segments
     Add a segment that focuses on the damage of the critical attack
     Critical Attack has a chance to activate "ZONE" (True or false)
         Zone functions as increased chances for criticals 
+        While in Zone attacks increase for up to 20 seconds(Might decrease later)
+        Another Zone is possible but not as likely 
+        
 Purpose of the CritAttack segment
     User Attacks Enemy and has a chance to hit a critical
     Critical damage WILL BE determined in another segment
 Current issues
+    Attack can't be used as it "gives a different meaning to 'Attack', which is already used in a 'parent or current' scope to denote something else"
     Can't seem to get the return value to work
-Solutions
+Solutions?
     Convert to string and assign values to be returned and called on later.
 */
 using System;
@@ -20,7 +24,7 @@ namespace ExampleTests
     {
         
         // Code to initialize whether a Critical attack is landed or not.
-        static int CritAttack(Attack)
+        static int CritAttack()
         {
             //Set up Critical attack chance
             int CritAttack; Random random = new Random();
@@ -43,7 +47,7 @@ namespace ExampleTests
                     string Attack = "Landed";
                     
                 }
-            return Attack();
+            
             }   
         }   
 
