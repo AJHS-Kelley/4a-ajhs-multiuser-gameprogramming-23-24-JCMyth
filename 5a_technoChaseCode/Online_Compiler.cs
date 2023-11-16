@@ -28,25 +28,29 @@ namespace ExampleTests
             
             Console.WriteLine("Do you want to attack the enemy or run away?\n");
             Console.WriteLine("Please input Attack or Run away.\n");
-            string PlayerResponse = Console.Readline();
+            string PlayerResponse = Console.ReadLine();
+            // Code will check for player response and ract based on the result
+            if (PlayerResponse != "Attack" | PlayerResponse != "Run away");
+                   
                 if (PlayerResponse == "Attack")
-                   {
-                    Random rand = new Random();
-                    bool AttackHit = rand.Next(2) == 1
-                        if (AttackHit == 1);
-                        {
-                            CritAttack();
-                        }
-                        else
-                        {
-                            Console.WriteLine("You missed your attack... You can try again though.\n");
-                        }
-                   }
-                   else
-                   {
-                       Console.WriteLine("There's always next time")
-                       break
-                   }
+                    {
+                    Console.WriteLine("Hello\n") ; 
+                    CritAttack();
+                    return "Fight";
+                    }
+                    
+                else if (PlayerResponse == "Run away\n")
+                    {
+                    Console.WriteLine("There's always next time\n");
+                    return "Run";
+                    }
+                else    
+                    {
+                    Console.WriteLine("Please input your answer\n");
+                    return "No Response";
+                    Console.WriteLine("Please input Attack or Run away.\n");
+
+                    }
         }
 
 
@@ -58,7 +62,7 @@ namespace ExampleTests
             int CritAttack; Random random = new Random();
             for (int i = 0; i < 2; i++)
             {
-                Console.WriteLine("Press any key to attack.\n");
+                Console.WriteLine("Press SPACE to attack.\n");
                 string Attack;
                 Console.ReadKey();
                 CritAttack = random.Next(1, 6);
@@ -67,21 +71,24 @@ namespace ExampleTests
                 {
                     Console.WriteLine("You've hit a jackpot! Bonus Damage achieved!\n");
                     Attack = "Critical";
-                    // return 1; 
+                    
+                     return 1; 
                     
                 } 
                 else    
                 {
-                    Console.WriteLine("Attack landed\ttest");
+                    Console.WriteLine("Attack landed\t");
                     Attack = "Landed";
-                    // return 2; 
+                     return 2; 
                 }
             
             }
-            // return 0; 
+             return 0; 
         }   
 
+        // Code to iniate the zone
         
+            
 
 
         
