@@ -22,7 +22,35 @@ namespace ExampleTests
 {
     class ExampleTests
     {
-        
+        // Code to determine whether player wishes to fight oponnent 
+        static string Attackprompt()
+        {
+            
+            Console.WriteLine("Do you want to attack the enemy or run away?\n");
+            Console.WriteLine("Please input Attack or Run away.\n");
+            string PlayerResponse = Console.Readline();
+                if (PlayerResponse == "Attack")
+                   {
+                    Random rand = new Random();
+                    bool AttackHit = rand.Next(2) == 1
+                        if (AttackHit == 1);
+                        {
+                            CritAttack();
+                        }
+                        else
+                        {
+                            Console.WriteLine("You missed your attack... You can try again though.\n");
+                        }
+                   }
+                   else
+                   {
+                       Console.WriteLine("There's always next time")
+                       break
+                   }
+        }
+
+
+
         // Code to initialize whether a Critical attack is landed or not.
         static int CritAttack()
         {
@@ -59,7 +87,8 @@ namespace ExampleTests
         
         static void Main(string[] args)
         {
-           CritAttack();
+          Attackprompt();  
+                
         }
         
         
