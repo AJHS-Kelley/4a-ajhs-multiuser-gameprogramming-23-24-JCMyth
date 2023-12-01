@@ -17,18 +17,74 @@ Solutions?
     Convert to string and assign values to be returned and called on later.
 */
 using System;
-
+using System.Collections;
 namespace ExampleTests
 {
     class ExampleTests
     {
         //Code to select element or weapons
-        static string WeaponChoice()
+         static void WeaponChoice()
         {
-            List<string> Weapons = new List<string>("Sword", "Axe", "dagger", "Gun", "Potato launcher");
+            var Weapons = new ArrayList()
+            {
+                "Sword", "Axe", "dagger", "Gun", "Potato launcher"
+            };
+                
+                
             Console.WriteLine("Please select a weapons of your choice.\n");
-            Console.WriteLine(WeaponChoice);
+            string WeaponChoice = Convert.ToString(Console.ReadLine());
+            for (int i = 0; i < Weapons.Count-1; i++)
+            {
+                if (WeaponChoice == Weapons[i].ToString())
+                {
+                    break;
+                }
+            }
+            Console.WriteLine("\n" + WeaponChoice + "... Is this your choice of weapon?\n");
+            string confirmation = Convert.ToString(Console.ReadLine());
+            if (confirmation == "yes" || confirmation == "Yes")
+            {
+                Console.WriteLine("This may not be a weapon, buttt I'll add it to the list anyway.");
+                Weapons.Add(WeaponChoice);
+                Console.WriteLine("This is your current list of weapons:\n" );
+                foreach (var item in Weapons)
+                {
+                    Console.WriteLine(item);
+                }
+            }else if (confirmation == "No" || confirmation == "no")
+            {
+                Console.WriteLine("Please choose a weapon of your choice (The weapon you choose WILL be FINAL this time).\n");
+                string NewWeapon = Convert.ToString(Console.ReadLine());
+                Weapons.Add(NewWeapon);
+                Console.WriteLine("This may not be a weapon, but I'll add it to the list anyway.");
+                Console.WriteLine("This is your current list of weapons:\n" );
+                foreach (var item in Weapons)
+                {
+                    Console.WriteLine(item);
+                }
+
+                
+            }
+            else
+            {
+                Console.WriteLine("Please input Yes or No.");
+                string DoubleCheck = Convert.ToString(Console.ReadLine());
+                if (DoubleCheck == "yes" || DoubleCheck == "Yes")
+            {
+                Console.WriteLine("This may a weapon, buttt I'll add it to the list anyway.");
+                Weapons.Add(WeaponChoice);
+                Console.WriteLine("This is your current list of weapons:\n" );
+                foreach (var item in Weapons)
+                {
+                    Console.WriteLine(item);
+                }
+            }else if (DoubleCheck == "No" || DoubleCheck == "no")
+            {
+            Console.WriteLine("Please choose a weapon of your choice (The weapon you choose WILL be FINAL this time).\n");
+            }
+            }
         }
+
         // Code to determine whether player wishes to fight oponnent 
         static string Attackprompt()
         {
@@ -101,7 +157,8 @@ namespace ExampleTests
         
         static void Main(string[] args)
         {
-          Attackprompt();  
+        WeaponChoice();
+        Attackprompt();  
                 
         }
         
