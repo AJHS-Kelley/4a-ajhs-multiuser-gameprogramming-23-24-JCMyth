@@ -92,28 +92,21 @@ namespace ExampleTests
             Console.WriteLine("Do you want to attack the enemy or run away?\n");
             Console.WriteLine("Please input Attack or Run away.\n");
             string PlayerResponse = Console.ReadLine();
-            // Code will check for player response and ract based on the result
             while (PlayerResponse != "Attack" || PlayerResponse != "Run")
             {
-                   
-                if (PlayerResponse == "Attack")
+            Console.WriteLine("Please choose your answer");
+            string NewPlayerResponse = Console.ReadLine();
+            if (NewPlayerResponse == "Attack" || NewPlayerResponse == "attack")
                     {
-                    Console.WriteLine("Hello\n") ;
+                    Console.WriteLine("Get Ready!\n") ;
                     CritAttack();
                     return "Fight";
                     }
                     
-                else if (PlayerResponse == "Run")
+                else if (NewPlayerResponse == "Run" || NewPlayerResponse == "run")
                     {
                     Console.WriteLine("There's always next time\n");
                     return "Run";
-                    }
-                else    
-                    {
-                    Console.WriteLine("Please input your answer\n");
-                    return "No Response";
-                    Console.WriteLine("Please input Attack or Run away.\n");
-
                     }
             }   
             return "finished";
@@ -136,16 +129,17 @@ namespace ExampleTests
                 if (CritAttack == 3)
                 {
                     Console.WriteLine("You've hit a jackpot! Bonus Damage achieved!\n");
-                    Attack = "Critical";
-                    
-                     return 1; 
+                    int Critical = 1;
+                    return Critical;
+                     
                     
                 } 
                 else    
                 {
                     Console.WriteLine("Attack landed\t");
-                    Attack = "Landed";
-                     return 2; 
+                    int Critical = 2;
+                    return Critical; 
+                    Flow();
                 }
             
             }
@@ -153,7 +147,24 @@ namespace ExampleTests
         }   
 
         // Code to iniate the zone
-        
+        static bool Flow()
+        {
+        int FlowState; Random random = new Random(); 
+        FlowState = random.Next(1, 3);
+        if (FlowState == 1)
+            {
+            Console.WriteLine("You've entered your flow state!\n");
+            Console.WriteLine("All attacks are now critical, attack while you can!!!\n");
+            return true;
+            }
+            
+            else
+            {
+            Console.WriteLine("Just keep attacking, you may tap into your hidden potential");
+            return false;
+
+            }
+        }
             
 
 
