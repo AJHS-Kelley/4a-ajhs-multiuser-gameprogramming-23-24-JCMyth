@@ -10,7 +10,8 @@ namespace TechnoChase
         {
             var Weapons = new ArrayList()
             {
-                "Sword", "Axe", "dagger", "Gun", "Potato launcher"
+                
+                "Sword", "Axe", "Dagger", "Gun", "Potato Launcher"
             };
                 
                 
@@ -23,7 +24,9 @@ namespace TechnoChase
                     break;
                 }
             }
+            // Make sure to indicate which response you are expecting. Example: Type Yes or No.
             Console.WriteLine("\n" + WeaponChoice + "... Is this your choice of weapon?\n");
+            
             string confirmation = Convert.ToString(Console.ReadLine());
             if (confirmation == "yes" || confirmation == "Yes")
             {
@@ -73,8 +76,13 @@ namespace TechnoChase
         {
             
             Console.WriteLine("Do you want to attack the enemy or run away?\n");
-            Console.WriteLine("Please input Attack or Run away.\n");
+            Console.WriteLine("Please input Attack or Run.\n");
             string PlayerResponse = Console.ReadLine();
+            /* 
+            Look at using .ToLower() to make the answer lower case, then you only need to check for lowercase versions of the attack or run. 
+            OR
+            You can use .StartsWith() to check for 'a' or 'r' in their answer. 
+            */ 
             while (PlayerResponse != "Attack" || PlayerResponse != "Run")
             {
             Console.WriteLine("Please choose your answer");
@@ -101,13 +109,15 @@ namespace TechnoChase
         static int CritAttack()
         {
             //Set up Critical attack chance
-            int CritAttack; Random random = new Random();
+            int CritAttack; 
+            Random random = new Random();
             for (int i = 0; i < 2; i++)
             {
                 Console.WriteLine("Press SPACE to attack.\n");
                 string Attack;
                 Console.ReadKey();
                 CritAttack = random.Next(1, 6);
+                
                 // IF statement determines if the attack if critical, and assigns it a string name that can be used later.
                 if (CritAttack == 3)
                 {
@@ -155,7 +165,7 @@ namespace TechnoChase
         static void Main(string[] args)
         {
         WeaponChoice();
-        Attackprompt();  
+        Attackprompt();          
                 
         }
         
