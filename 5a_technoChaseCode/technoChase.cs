@@ -1,9 +1,9 @@
 // Julian cunnngham v0.5
 using System;
 using System.Collections;
-namespace ExampleTests
+namespace TechnoChase
 {
-    class ExampleTests
+    class TechnoChase
     {
         //Code to select element or weapons
          static void WeaponChoice()
